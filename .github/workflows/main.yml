@@ -33,7 +33,8 @@ jobs:
 
     - name: Terraform Init
       working-directory: ./terraform
-      run: terraform init \
+      run: |
+        terraform init \
             -backend-config="bucket=${{ secrets.S3_TERRAFORM_BUCKET }}" \
             -backend-config="key=${{ secrets.S3_TERRAFORM_STATE_KEY }}" \
             -backend-config="region=${{ env.AWS_REGION }}" \

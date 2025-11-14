@@ -5,6 +5,8 @@ on:
 
 env:
   AWS_REGION: "eu-west-1"
+  TF_VAR_aws_eks_admin_iam_role_arn: ${{ secrets.AWS_EKS_ADMIN_IAM_ROLE_ARN }}
+
 
 jobs:
   terraform-destroy:
@@ -36,4 +38,5 @@ jobs:
             -backend-config="region=${{ env.AWS_REGION }}" \
 
     - name: Terraform Destroy
+      working-directory: ./terraform
       run: terraform destroy -auto-approve

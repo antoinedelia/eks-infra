@@ -8,7 +8,7 @@ on:
 
 env:
   AWS_REGION: "eu-west-1"
-
+  TF_VAR_aws_eks_admin_iam_role_arn: ${{ secrets.AWS_EKS_ADMIN_IAM_ROLE_ARN }}
 jobs:
   terraform:
     name: '[Terraform] Plan & Apply'

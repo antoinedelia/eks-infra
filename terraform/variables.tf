@@ -9,3 +9,8 @@ variable "cluster_name" {
   type        = string
   default     = "eks-antoine"
 }
+
+variable "aws_eks_admin_iam_role_arn" {
+  description = "The ARN of a local IAM user to grant 'system:masters' access to the EKS cluster"
+  type        = string
+}

@@ -4,6 +4,13 @@ This repository contains all the Terraform code required to provision a producti
 
 The infrastructure is managed entirely as code and is deployed via GitHub Actions using a secure OIDC connection.
 
+## Getting Started
+
+```sh
+aws eks update-kubeconfig --name eks-antoine --region eu-west-1
+kubectl get nodes
+```
+
 ## Overview
 
 This project provisions the following core components:
@@ -32,6 +39,7 @@ More information can be found on the [Configure AWS Credentials repository](http
 
 The GitHub Action is using the following variables as GitHub Repository secrets:
 
+* `AWS_EKS_ADMIN_IAM_ROLE_ARN`: The ARN of a local IAM user to grant 'system:masters' access to the EKS cluster
 * `AWS_REGION`: The default AWS region to use
 * `AWS_ROLE_ARN`: The AWS IAM role to use for authentication
 * `S3_TERRAFORM_BUCKET`: The AWS S3 Bucket name to store the Terraform state file

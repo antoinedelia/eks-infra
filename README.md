@@ -17,7 +17,7 @@ This project provisions the following core components:
 
 * **VPC:** A new, custom VPC spanning 3 Availability Zones (`eu-west-1a`, `eu-west-1b`, `eu-west-1c`) with public and private subnets.
 * **EKS Control Plane:** The managed Kubernetes "brain" (`eks-antoine`).
-* **EKS Managed Node Group:** A group of EC2 worker nodes (`t3.small`) running in the private subnets with auto-scaling capabilities (2 desired, 1-2 min/max).
+* **EKS Managed Node Group:** A group of EC2 worker nodes (`t3.medium`) running in the private subnets with auto-scaling capabilities (2 desired, 1-2 min/max).
 * **Networking:** A single NAT Gateway for private subnets to access the internet (e.g., to pull Docker images).
 
 ## Prerequisites
@@ -49,3 +49,7 @@ The GitHub Action is using the following variables as GitHub Repository secrets:
 
 * Use [fck-nat](https://github.com/AndrewGuenther/fck-nat) to reduce NAT cost.
 * Integrate [Infracost](https://github.com/infracost/infracost) to GitHub Actions.
+
+## Troubleshooting
+
+* https://repost.aws/knowledge-center/eks-cluster-connection
